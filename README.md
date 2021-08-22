@@ -112,7 +112,7 @@ Index, New and Create has been completed for you.
 |2| Show |/logs/| GET |show.ejs|Log.findById()|
 |3| New | /logs/new | GET | new.ejs | none | 
 |4| Create | /logs/ | POST| none | Log.create(...)|
-|5| Edit |/logs/:id/edit|GET|edit.ejs||
+|5| Edit |/logs/:id/edit|GET|edit.ejs| Log.findById()|
 |6| Update |/logs/:id|PUT|none|Log.findByIdAndUpdate(...)|
 |7| Destroy |/logs/:id|DELETE|none|Log.findByIdAndRemove(...)|
 
