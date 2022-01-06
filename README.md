@@ -105,6 +105,9 @@ Index, New and Create has been completed for you.
 1. Add a link to the create page
 1. don't forget to `git add` and `git commit` your work, give yourself an informative commit message so you can trace back your work, if you need to
 
+
+---
+
 #### Day 2 Restful Routes
 |#|Action|URL|HTTP Verb|EJS view filename|mongoose method|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -176,4 +179,4 @@ Index, New and Create has been completed for you.
 
 ---
 
-*Copyright 2021, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*
+*Copyright 2022, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*
