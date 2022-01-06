@@ -108,7 +108,10 @@ Index, New and Create has been completed for you.
 
 ---
 
-#### Day 2 Restful Routes
+## Day 2 Restful Routes
+
+Keep building onto your Captain's Log. Before we begin, let's review the remaining routes we will be building. These additional routes: SHOW/DESTROY/EDIT/UPDATE will produce a full-CRUD, full-stack web application. __Make it so!__
+
 |#|Action|URL|HTTP Verb|EJS view filename|mongoose method|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |1| Index | /logs/ | GET | index.ejs | Log.find()|
@@ -120,7 +123,7 @@ Index, New and Create has been completed for you.
 |7| Destroy |/logs/:id|DELETE|none|Log.findByIdAndRemove(...)|
 
 ### Show Route
-1. Fill out your Restful table
+1. Fill out your own Restful table
 1. In `app.js` make a show route, be sure to follow the Restful convention
 1. create a mongo query and `res.send` your data as a string
 1. upgrade your `index.ejs` so that each title links to its show page
