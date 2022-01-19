@@ -22,10 +22,14 @@ app.use('/views', express.static('views'))
 
 // CONTROLLERS //
 
-
-app.get('/', (req,res)=>{
-    console.log("hitting app's route")
-    res.send("App's home route")
+// Index
+app.get('/logs', (req,res)=>{
+    console.log("hitting app's index route")
+    res.send("App's index route")
+})
+// New
+app.get('/logs/new', (req,res)=>{
+    res.render('new.ejs')
 })
 
 // STARTS SERVER
