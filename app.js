@@ -16,8 +16,8 @@ const PORT = 3000
 app.set('view engine', 'ejs')
 
 // MIDDLEWARE //
-app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 app.use('/views', express.static('views'))
 
 // CONTROLLERS //
@@ -30,6 +30,19 @@ app.get('/logs', (req,res)=>{
 // New
 app.get('/logs/new', (req,res)=>{
     res.render('new.ejs')
+})
+
+// Create
+app.post('/logs', (req,res)=>{
+    let body = req.body
+    console.log(body)
+    // res.redirect('/logs')
+    if(req.body.shipIsBroken === "on"){
+        req.body.shipIsBroken = true
+    } else {
+        req.body.shipIsBroken = false
+    }
+    res.send(body)
 })
 
 // STARTS SERVER

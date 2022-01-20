@@ -9,9 +9,11 @@
 <body>
     <h1>New Logs Anyone?:</h1>
     <form action="/logs" method="POST">
-        <input type="text" placeholder="Title">
-        <input type="text" placeholder="entry">
-        <input type="checkbox" placeholder="shipIsBroken">
+        <h2>Enter Log Title: </h2>
+        <input type="text" name="title" placeholder="Title">
+        <h2>Enter Log Entry: </h2>
+        <textarea name="entry" cols="30" rows="10" placeholder="Entry"></textarea>
+        <h2>Is Ship Broken: <input type="checkbox" name="shipIsBroken"></h2>
         <input type="submit">
     </form>
 </body>
