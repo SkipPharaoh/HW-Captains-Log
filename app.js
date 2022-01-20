@@ -1,7 +1,7 @@
 // IMPORT //
 const express = require('express')
 const app = express()
-
+const Log = require('./models/logs')
 
 // Method-Override
 const methodOverride = require('method-override')
@@ -27,8 +27,11 @@ app.use('/views', express.static('views'))
 
 // Index
 app.get('/logs', (req,res)=>{
-    console.log("hitting app's index route")
-    res.send("index")
+    Log.find({}, (err, foundLogs)=>{
+        res.render('index.ejs', {
+            logs: foundLogs
+        })
+    })
 })
 // New
 app.get('/logs/new', (req,res)=>{
@@ -37,15 +40,16 @@ app.get('/logs/new', (req,res)=>{
 
 // Create
 app.post('/logs', (req,res)=>{
-    let body = req.body
-    // res.redirect('/logs')
     if(req.body.shipIsBroken === "on"){
         req.body.shipIsBroken = true
     } else {
         req.body.shipIsBroken = false
     }
-    res.redirect('/logs/:id')
-    console.log(body)
+    Log.create(req.body, (err, createdLog)=>{
+        res.redirect('/logs')
+    })
+    // res.redirect('/logs')
+    console.log(req.body)
 })
 
 // STARTS SERVER
