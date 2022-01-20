@@ -38,6 +38,16 @@ app.get('/logs/new', (req,res)=>{
     res.render('new.ejs')
 })
 
+// Show
+app.get('/logs/:id', (req,res)=>{
+    Log.findById(req.params.id, (err, foundLog)=>{
+        console.log(foundLog),
+        res.render('show.ejs', {
+            logs: foundLog
+        })
+    })
+})
+
 // Create
 app.post('/logs', (req,res)=>{
     if(req.body.shipIsBroken === "on"){
