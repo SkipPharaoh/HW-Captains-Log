@@ -1,7 +1,7 @@
 // IMPORT //
 const express = require('express')
 const app = express()
-const Log = require('./models/logs')
+const logsController = require('./controllers/logs')
 
 // Method-Override
 const methodOverride = require('method-override')
@@ -23,76 +23,11 @@ app.use(methodOverride('_method'))
 app.use('/views', express.static('views'))
 
 // CONTROLLERS //
+app.use('/logs', logsController)
 
-
-// Index
-app.get('/logs', (req,res)=>{
-    Log.find({}, (err, foundLogs)=>{
-        res.render('index.ejs', {
-            logs: foundLogs
-        })
-    })
-})
-// New
-app.get('/logs/new', (req,res)=>{
-    res.render('new.ejs')
-})
-
-// Edit
-app.get('/logs/:id/edit', (req,res)=>{
-    Log.findById(req.params.id, (err, foundLog)=>{
-        res.render('edit.ejs', {
-            log: foundLog,
-            id: req.params.id
-        })
-    })
-})
-
-// Show
-app.get('/logs/:id', (req,res)=>{
-    Log.findById(req.params.id, (err, foundLog)=>{
-        console.log(foundLog),
-        res.render('show.ejs', {
-            logs: foundLog
-        })
-    })
-})
-
-// Create
-app.post('/logs', (req,res)=>{
-    if(req.body.shipIsBroken === "on"){
-        req.body.shipIsBroken = true
-    } else {
-        req.body.shipIsBroken = false
-    }
-    Log.create(req.body, (err, createdLog)=>{
-        res.redirect('/logs')
-    })
-    // res.redirect('/logs')
-    console.log(req.body)
-})
-
-// Delete
-app.delete('/logs/:id', (req,res)=>{
-    Log.deleteOne({}, (err,deleteLog)=>{
-        const deletesLog = (err,deleteLog)=>{
-            res.redirect('/logs')
-        }
-        Log.findByIdAndDelete(req.params.id, deletesLog)
-    })
-})
-
-// Update (PUT)
-app.put('/logs/:id', (req,res)=>{
-    if(req.body.shipIsBroken === "on"){
-        req.body.shipIsBroken = true
-    } else {
-        req.body.shipIsBroken = false
-    }
-    Log.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateLog)=>{
-        console.log(updateLog)
-        res.redirect('/logs')
-    })
+// Home
+app.get('/', (req,res)=>{
+    res.send('Home Route; Day 2 is complete')
 })
 
 // STARTS SERVER
