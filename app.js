@@ -38,6 +38,16 @@ app.get('/logs/new', (req,res)=>{
     res.render('new.ejs')
 })
 
+// Edit
+app.get('/logs/:id/edit', (req,res)=>{
+    Log.findById(req.params.id, (err, foundLog)=>{
+        res.render('edit.ejs', {
+            log: foundLog,
+            id: req.params.id
+        })
+    })
+})
+
 // Show
 app.get('/logs/:id', (req,res)=>{
     Log.findById(req.params.id, (err, foundLog)=>{
@@ -69,6 +79,13 @@ app.delete('/logs/:id', (req,res)=>{
             res.redirect('/logs')
         }
         Log.findByIdAndDelete(req.params.id, deletesLog)
+    })
+})
+
+// Update (PUT)
+app.put('/logs/:id', (req,res)=>{
+    Log.findByIdAndUpdate(req.params.id, req.body, (err, updateLog)=>{
+        res.redirect('/logs/'+req.params.id)
     })
 })
 
