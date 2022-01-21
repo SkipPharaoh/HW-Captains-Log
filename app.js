@@ -84,8 +84,14 @@ app.delete('/logs/:id', (req,res)=>{
 
 // Update (PUT)
 app.put('/logs/:id', (req,res)=>{
-    Log.findByIdAndUpdate(req.params.id, req.body, (err, updateLog)=>{
-        res.redirect('/logs/'+req.params.id)
+    if(req.body.shipIsBroken === "on"){
+        req.body.shipIsBroken = true
+    } else {
+        req.body.shipIsBroken = false
+    }
+    Log.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateLog)=>{
+        console.log(updateLog)
+        res.redirect('/logs')
     })
 })
 
