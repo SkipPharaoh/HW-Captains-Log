@@ -11,7 +11,7 @@
     <a href="/logs/<%=logs._id%>/edit">Need An Edit?</a>
     <p><%=logs.title%></p>
     <p><%=logs.entry%></p>
-    <p><%=logs.shipIsBroken%></p>
+    <p>Is Shit Broken: <%=logs.shipIsBroken%></p>
     <p><%=logs.createdAt%></p>
     <form action="/logs/<%=logs._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete <%=logs.title%>!">

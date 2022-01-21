@@ -13,7 +13,8 @@
         <input type="text" name="title" value="<%=log.title%>">
         <h2>Edit Log Entry: </h2>
         <textarea name="entry" cols="30" rows="10"> <%=log.entry%></textarea>
-        <h2>Is Ship Broken: <input type="checkbox" name="shipIsBroken"></h2>
+        <h2>Is Ship Broken: <input type="checkbox" name="shipIsBroken" 
+            <% if(log.shipIsBroken === true){%> checked <% }%> ></h2>
         <input type="submit" value="Edit Log">
     </form>
 </body>
