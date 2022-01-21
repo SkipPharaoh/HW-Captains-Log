@@ -12,6 +12,9 @@
     <p><%=logs.entry%></p>
     <p><%=logs.shipIsBroken%></p>
     <p><%=logs.createdAt%></p>
+    <form action="/logs/<%=logs._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete <%=logs.title%>!">
+    </form>
     <a href="/logs">Wrong Log? Need To See A different</a>
 </body>
 </html>

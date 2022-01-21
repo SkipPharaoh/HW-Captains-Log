@@ -62,6 +62,16 @@ app.post('/logs', (req,res)=>{
     console.log(req.body)
 })
 
+// Delete
+app.delete('/logs/:id', (req,res)=>{
+    Log.deleteOne({}, (err,deleteLog)=>{
+        const deletesLog = (err,deleteLog)=>{
+            res.redirect('/logs')
+        }
+        Log.findByIdAndDelete(req.params.id, deletesLog)
+    })
+})
+
 // STARTS SERVER
 app.listen(PORT, ()=>{
     console.log("I'm listening to post #: ", PORT)

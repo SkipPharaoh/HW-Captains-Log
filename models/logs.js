@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 const logsSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: true,
+        required: true,
         default: 'Blank title'
     },
     entry: {
         type: String,
-        require: true,
+        required: true,
         default: '...'
     },
     shipIsBroken: {

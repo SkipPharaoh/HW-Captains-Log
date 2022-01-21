@@ -16,6 +16,9 @@
                     <a href="/logs/<%=logs[i]._id%>">
                         <%=logs[i].title%>
                     </a>
+                    <form action="/logs/<%=logs[i]._id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete <%=logs[i].title%>!">
+                    </form>
                 </li>
             <% } %>
         </ul>
